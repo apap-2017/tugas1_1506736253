@@ -1,0 +1,18 @@
+html, body{
+	overflow-x: hidden;
+	margin: 0;
+}
+#banner{
+	padding: 10%;
+	background: url('../images/bg-banner.jpg') no-repeat center fixed;
+	background-size: cover; 
+	color: #fff;
+}
+
+.centr-img .img-responsive{
+	margin: 0 auto;
+}
+#home-content{
+	background: #f3f4f4;
+	padding: 3%;
+}

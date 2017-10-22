@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<title>Ubah Data Penduduk</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+		
+	
+<nav class = "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed">
+	<a class = "navbar-brand" href = "#" >SIDUK DKI</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target = "#navbarSupportedContent"
+	aria-controls = "navbarSupportedContent" aria-expanded = "false"
+	aria-label = "Toggle navigation">
+	<span class = "navbar-toggler-icon" ></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarSupportedContent">
+		<ul class = "navbar-nav mr-auto">
+			<li class = "nav-item" >
+				<a class = "nav-link" href = "/" > Home </a>
+			</li>
+			<li class = "nav-item" >
+				<a class="nav-link" href="/penduduk/cari"> Cari Penduduk </a>
+			</li>
+		</ul>
+		
+	</div>
+</nav>
+  
+	<div class="container">
+	<h1 class="page-header">Ubah Data Penduduk</h1>
+	<form th:action="'/penduduk/ubah/'+${penduduk.nik}" method="post" th:object="${penduduk}">
+	    <input required="true" type="hidden" class="form-control" name="id" th:value="${penduduk.id}"/>
+	    
+	    <div class="form-group">
+	      <label for="nama">Masukan Nama</label>
+	      <input required="true" type="text" class="form-control" name="nama" th:value="${penduduk.nama}"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Tempat Lahir</label>
+	      <input required="true" type="text" class="form-control" name="tempat_lahir" th:value="${penduduk.tempat_lahir}"/>
+	    </div>
+	   <div class="form-group">
+	      <label for="tanggal_lahir">Tanggal Lahir</label>
+	      <input required="true" type="date" class="form-control" name="tanggal_lahir" th:value="${penduduk.tanggal_lahir}"/>
+	   </div>
+	   <div class="form-group">
+	      <label for="jenis_kelamin">Jenis Kelamin</label>
+	      <select required="true" class="form-control" name="jenis_kelamin" th:value="${penduduk.jenis_kelamin}">
+	      	<option th:selected="${penduduk.matchGender('0')}" th:value="0">Laki-Laki</option>
+	      	<option th:selected="${penduduk.matchGender('1')}" th:value="1">Perempuan</option>
+	      </select>
+	    </div>
+	   <div class="form-group">
+	      <label for="golongan_darah">Golongan Darah</label>
+	      <select  required="true" class="form-control" name="golongan_darah" th:selected="${penduduk.golongan_darah}">
+	      	<option th:selected="${penduduk.matchGolonganDarah('AB')}">AB</option>
+	      	<option th:selected="${penduduk.matchGolonganDarah('A+')}">A+</option>
+	      	<option th:selected="${penduduk.matchGolonganDarah('A-')}">A-</option>
+	      	<option th:selected="${penduduk.matchGolonganDarah('B+')}">B+</option>
+	      	<option th:selected="${penduduk.matchGolonganDarah('B-')}">B-</option>
+	      	<option th:selected="${penduduk.matchGolonganDarah('O+')}">O+</option>
+	      	<option th:selected="${penduduk.matchGolonganDarah('O-')}">O-</option>
+	      </select>
+	    </div>
+	    <div class="form-group">
+	      <label for="agama">Agama</label>
+	      <input required="true" type="text" class="form-control" name="agama" th:value="${penduduk.agama}"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="status_perkawinan">Status Perkawinan</label>
+	      <select required="true" class="form-control" name="status_perkawinan" th:value="${penduduk.status_perkawinan}">
+	      	<option th:selected="${penduduk.matchNikah('Kawin')}">Kawin</option>
+	      	<option th:selected="${penduduk.matchNikah('Belum Kawin')}">Belum Kawin</option>
+	      </select>
+	    </div>
+	    <div class="form-group">
+	      <label for="pekerjaan">Pekerjaan</label>
+	      <input required="true" type="text" class="form-control" name="pekerjaan" th:value="${penduduk.pekerjaan}"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="kewarganegaraan">Kewarganegaraan</label>
+	    	<select required="true" class="form-control" name="is_wni" th:value="${penduduk.is_wni}">
+		      	<option th:selected="${penduduk.matchWN('1')}" th:value="1">WNI</option>
+		      	<option th:selected="${penduduk.matchWN('0')}" th:value="0">WNA</option>
+	     	</select>
+	    </div>
+	    <div class="form-group">
+	      <label for="id_keluarga">ID Keluarga</label>
+	      <input required="true" type="text" class="form-control" name="id_keluarga" th:value="${penduduk.id_keluarga}"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="status_keluarga">Status Dalam Keluarga</label>
+	      <input required="true" type="text" class="form-control" name="status_dalam_keluarga" th:value="${penduduk.status_dalam_keluarga}"/>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+ 	</form>
+	</div>
+	
+</body>
+
+</html>
+

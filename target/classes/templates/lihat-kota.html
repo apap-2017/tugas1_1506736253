@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<title>Cari Penduduk</title>
+	 <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	
+<nav class = "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed">
+	<a class = "navbar-brand" href = "#" >SIDUK DKI</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target = "#navbarSupportedContent"
+	aria-controls = "navbarSupportedContent" aria-expanded = "false"
+	aria-label = "Toggle navigation">
+	<span class = "navbar-toggler-icon" ></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarSupportedContent">
+		<ul class = "navbar-nav mr-auto">
+			<li class = "nav-item" >
+				<a class = "nav-link" href = "/" > Home </a>
+			</li>
+			<li class = "nav-item" >
+				<a class="nav-link" href="/penduduk/cari"> Cari Penduduk </a>
+			</li>
+		</ul>
+		
+	</div>
+</nav>  
+<div class="container">
+	<div class="col-12">
+		<br/>
+		<h4 class="text-center">Lihat Data Penduduk Berdasarkan Kota</h4>
+		<hr/>
+		<br/>
+	</div>
+	<div class="row">
+		<div class="col-3"></div>
+	<div class="col-6">
+		<form action="/penduduk/cari">
+			 <div class="form-group">
+		      <label for="nama">Kota</label>
+		      <select name="kt" class="form-control">
+		      	<div  th:each="kotaData,iterationStatus: ${kota}">
+		      		<option th:text="${kotaData.nama_kota}" th:value="${kotaData.id}"></option>
+		      	</div>
+		      	
+		      </select>
+		    </div>
+			<input type="submit" class="btn btn-primary" value="Lihat" />
+		</form>
+		
+	</div>
+	<div class="col-3"></div>
+	</div>
+	
+</div>
+
+</body>
+</html>

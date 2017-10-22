@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<title>Lihat Data Penduduk</title><link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	
+<nav class = "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed">
+	<a class = "navbar-brand" href = "#" >SIDUK DKI</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target = "#navbarSupportedContent"
+	aria-controls = "navbarSupportedContent" aria-expanded = "false"
+	aria-label = "Toggle navigation">
+	<span class = "navbar-toggler-icon" ></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarSupportedContent">
+		<ul class = "navbar-nav mr-auto">
+			<li class = "nav-item" >
+				<a class = "nav-link" href = "/" > Home </a>
+			</li>
+			<li class = "nav-item" >
+				<a class="nav-link" href="/penduduk/cari"> Cari Penduduk </a>
+			</li>
+		</ul>
+		
+	</div>
+</nav>
+<div class="container">
+	<br/>
+	<h3><strong>Lihat Data Penduduk - <span th:text="${penduduk.nik}"></span></strong></h3>
+    <br/>
+    <table class='table borderless'>
+    	<tr>
+    		<td><strong>NIK</strong></td>
+    		<td th:text="': '+${penduduk.nik}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Nama</strong></td>
+    		<td th:text="': '+${penduduk.nama}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Tempat Tanggal Lahir</strong></td>
+    		<td th:text="': '+${penduduk.tempat_lahir}+', '+${penduduk.tanggal_lahir}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Alamat</strong></td>
+    		<td th:text="': '+${penduduk.alamat}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Jenis Kelamin</strong></td>
+    		<td th:if="${penduduk.jenis_kelamin.equals('1')}">: Perempuan</td>
+    		<td th:unless="${penduduk.jenis_kelamin.equals('1')}">: Laki-Laki</td>
+    	</tr>
+    	<tr>
+    		<td><strong>Golongan Darah</strong></td>
+    		<td th:text="': '+${penduduk.golongan_darah}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>RT/RW</strong></td>
+    		<td th:text="': '+${penduduk.rt}+'/'+${penduduk.rw}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Kelurahan/Desa</strong></td>
+    		<td th:text="': '+${penduduk.kelurahan}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Kecamatan</strong></td>
+    		<td th:text="': '+${penduduk.kecamatan}"></td>
+    	</tr>
+    	    	<tr>
+    		<td><strong>Kota</strong></td>
+    		<td th:text="': '+${penduduk.kota}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Agama</strong></td>
+    		<td th:text="': '+${penduduk.agama}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Status Perkawinan</strong></td>
+    		<td th:text="': '+${penduduk.status_perkawinan}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Pekerjaan</strong></td>
+    		<td th:text="': '+${penduduk.pekerjaan}"></td>
+    	</tr>
+    	<tr>
+    		<td><strong>Kewarganegaraan</strong></td>
+    		<td th:if="${penduduk.is_wni.equals('1')}">: WNI</td>
+    		<td th:unless="${penduduk.is_wni.equals('1')}">: WNA</td>
+    	</tr>
+    	<tr>
+    		<td><strong>Status Kematian</strong></td>
+    		<td th:if="${penduduk.is_wafat.equals('1')}">: Meninggal</td>
+    		<td th:unless="${penduduk.is_wafat.equals('1')}">: Hidup</td>
+    	</tr>
+    	
+    </table>
+    <br/>
+    <form method="post" action="/penduduk/mati">
+    	<input type="hidden" name="id_keluarga" th:value="${penduduk.id_keluarga}"/>
+    	<input type="hidden" name="nik" th:value="${penduduk.nik}"/>
+    	<input type="submit" class="btn btn-danger" value="Non Aktifkan"/>
+    </form>
+	<br/>
+    <a th:href="'penduduk/ubah/'+${penduduk.nik}" class='btn btn-success'>Ubah Data Penduduk</a>
+</div>
+
+</body>
+</html>

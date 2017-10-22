@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<title>Home</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+<nav class = "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed">
+	<a class = "navbar-brand" href = "#" >SIDUK DKI</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target = "#navbarSupportedContent"
+	aria-controls = "navbarSupportedContent" aria-expanded = "false"
+	aria-label = "Toggle navigation">
+	<span class = "navbar-toggler-icon" ></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarSupportedContent">
+		<ul class = "navbar-nav mr-auto">
+			<li class = "nav-item" >
+				<a class = "nav-link" href = "/" > Home </a>
+			</li>
+			<li class = "nav-item" >
+				<a class="nav-link" href="/penduduk/cari"> Cari Penduduk </a>
+			</li>
+		</ul>
+		
+	</div>
+</nav>
+
+<div id="banner">
+	<div class="container">
+		<img src="/images/logo_dki.png" class="img-responsive mx-auto d-block" />
+		<h1 class="text-center">Sistem informasi Kependudukan Online Provinsi DKI Jakarta</h1>
+		<h4 class="text-center">Selamat datang di Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h4>
+	</div>
+</div>
+<div id="home-content">
+	<div class="container">
+		<div class="row">
+		<div class="col">
+			<div class="card">
+				<img src="/images/penduduk.jpg" class="img-fluid" />
+				<div style="padding: 20px">
+					<h4>Lihat Data Penduduk Berdasarkan NIK</h4>
+					<p>Masukan Nomor Induk Kependudukan</p>
+					<form action="penduduk">
+						<input required="true" type="text" name="nik" class="form-control" style="width:80%" /><br/>
+						<input type="submit" class="btn btn-primary" value="Lihat" />
+					</form>
+				</div>
+				
+			</div>
+		</div>
+		<div class="col">
+			<div class="card">
+				<img src="/images/keluarga.jpg" class="img-fluid" max-height="100"/>
+				<div style="padding: 20px">
+					<h4>Lihat Data Keluarga Berdasarkan NKK</h4>
+				<p>Masukan Nomor Kartu Keluarga</p>
+				<form action="keluarga">
+					<input required="true" type="text" name="nomor_kk" class="form-control" style="width:60%"  /><br/>
+					<input type="submit" class="btn btn-primary" value="Lihat" />
+				</form>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		</div>
+		<hr/>
+	
+	<a href="/penduduk/tambah" class="btn btn-success ">+ Tambah Penduduk</a>
+	<a href="/keluarga/tambah" class="btn btn-danger ">+ Tambah Keluarga</a> 
+	
+	
+	
+	</div>
+	
+</div>
+
+</body>
+</html>

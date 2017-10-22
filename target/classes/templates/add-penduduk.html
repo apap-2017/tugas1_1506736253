@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<title>Tambah Data Penduduk</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	
+<nav class = "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed">
+	<a class = "navbar-brand" href = "#" >SIDUK DKI</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target = "#navbarSupportedContent"
+	aria-controls = "navbarSupportedContent" aria-expanded = "false"
+	aria-label = "Toggle navigation">
+	<span class = "navbar-toggler-icon" ></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarSupportedContent">
+		<ul class = "navbar-nav mr-auto">
+			<li class = "nav-item" >
+				<a class = "nav-link" href = "/" > Home </a>
+			</li>
+			<li class = "nav-item" >
+				<a class="nav-link" href="/penduduk/cari"> Cari Penduduk </a>
+			</li>
+		</ul>
+		
+	</div>
+</nav>
+<div class="container">
+	<h3>Tambah Penduduk</h3>
+	<form action="/penduduk/tambah" method="post" th:object="${penduduk}">
+	    <div class="form-group">
+	      <label for="nama">Masukan Nama</label>
+	      <input required="true" type="text" class="form-control" name="nama"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Tempat Lahir</label>
+	      <input required="true" type="text" class="form-control" name="tempat_lahir"/>
+	    </div>
+	   <div class="form-group">
+	      <label for="tanggal_lahir">Tanggal Lahir</label>
+	      <input required="true" type="date" class="form-control" name="tanggal_lahir"/>
+	   </div>
+	   <div class="form-group">
+	      <label for="jenis_kelamin">Jenis Kelamin</label>
+	      <select required="true" class="form-control" name="jenis_kelamin">
+	      	<option th:value="0">Laki-Laki</option>
+	      	<option th:value="1">Perempuan</option>
+	      </select>
+	    </div>
+	   <div class="form-group">
+	      <label for="golongan_darah">Golongan Darah</label>
+	      <select  required="true" class="form-control" name="golongan_darah">
+	      	<option>AB</option>
+	      	<option>A+</option>
+	      	<option>A-</option>
+	      	<option>B+</option>
+	      	<option>B-</option>
+	      	<option>O+</option>
+	      	<option>O-</option>
+	      </select>
+	    </div>
+	    <div class="form-group">
+	      <label for="agama">Agama</label>
+	      <input required="true" type="text" class="form-control" name="agama"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="status_perkawinan">Status Perkawinan</label>
+	      <select required="true" class="form-control" name="status_perkawinan">
+	      	<option>Kawin</option>
+	      	<option>Belum Kawin</option>
+	      </select>
+	    </div>
+	    <div class="form-group">
+	      <label for="pekerjaan">Pekerjaan</label>
+	      <input required="true" type="text" class="form-control" name="pekerjaan"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="kewarganegaraan">Kewarganegaraan</label>
+	      <select required="true" class="form-control" name="is_wni">
+		      <option th:text="WNI" th:value="1"></option>
+		      <option th:text="WNA" th:value="0"></option>
+	      </select>
+	    </div>
+	    <div class="form-group">
+	      <label for="status_kematian">Status Kematian</label>
+	      <select required="true" class="form-control" name="is_wafat">
+	      	<option th:text="Hidup" th:value="0">Hidup</option>
+	      	<option th:text="Meninggal" th:value="1">Meninggal</option>
+	      </select>
+	    </div>
+	    <div class="form-group">
+	      <label for="id_keluarga">ID Keluarga</label>
+	      <input required="true" type="text" class="form-control" name="id_keluarga"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="status_keluarga">Status Dalam Keluarga</label>
+	      <input required="true" type="text" class="form-control" name="status_dalam_keluarga"/>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+ 	</form>
+</div>
+
+</body>
+</html>
